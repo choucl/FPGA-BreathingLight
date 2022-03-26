@@ -1,4 +1,4 @@
-`include "def.v"
+// `include "def.v"
 
 module breather (
     input        clk_div_i,  // clk_div = 125MHz / 8 = 15625000Hz
@@ -33,10 +33,12 @@ module breather (
                 // control brightness, 1 for the brightest
                 if (phase_counter <= 5'd15) begin
                     brightness <= (brightness + 32'd2) << 1;
-                    clk_div_o  <= 1;
                 end else begin
                     brightness <= (brightness >> 1) - 32'd2;
-                    clk_div_o  <= 0;
+                end
+
+                if (phase_counter == 5'd15 || phase_counter == 5'd31) begin
+                    clk_div_o <= ~clk_div_o;
                 end
             end
             
