@@ -17,9 +17,9 @@ module breather (
     always @(clk_div_i or rst_i) begin
         
         if (rst_i == 1) begin
-            clk_counter   <= 0;
-            phase_counter <= 0;
-            togle_counter <= 0;
+            clk_counter   <= 32'd0;
+            phase_counter <= 5'd0;
+            togle_counter <= 32'd0;
             brightness    <= 32'hffffffff;
             mask          <= 1;
             clk_div_o     <= 1;
