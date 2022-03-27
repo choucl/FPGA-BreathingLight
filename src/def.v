@@ -1,6 +1,7 @@
 /* def.v
  *
  */
+`ifndef _DEF_V_
 
 // input sw for each color
 `define PURPLE              3'd0
@@ -44,3 +45,5 @@
 `define PWM_BLUE_B          8'd255
 `define PWM_BLUE_G          8'd0
 `define PWM_BLUE_R          8'd0
+
+`endif
