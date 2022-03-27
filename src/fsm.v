@@ -29,12 +29,12 @@ module fsm (
 
     always @(*) begin  // comb circuit
         case (cstate)
-            red:    color_o = RED;
-            orange: color_o = ORANGE;
-            yellow: color_o = YELLOW;
-            green:  color_o = GREEN;
-            blue:   color_o = BLUE;
-            purple: color_o = PURPLE;
+            red:    color_o = `RED;
+            orange: color_o = `ORANGE;
+            yellow: color_o = `YELLOW;
+            green:  color_o = `GREEN;
+            blue:   color_o = `BLUE;
+            purple: color_o = `PURPLE;
         endcase
     end
 
