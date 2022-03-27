@@ -24,9 +24,10 @@ module breather (
             mask          <= 1;
             clk_div_o     <= 1;
         end else begin
-            clk_counter <= clk_counter + 32'd1; 
             
-            if (clk_counter == 32'd9765625) begin  // 2 sec
+            if (clk_counter != 32'd9765625) begin
+                clk_counter   <= clk_counter + 32'd1; 
+            end else begin  // 1/16 sec
                 clk_counter   <= 0;
                 phase_counter <= phase_counter + 5'd1;
                 
@@ -37,15 +38,17 @@ module breather (
                     brightness <= (brightness >> 1) - 32'd2;
                 end
 
+                // control output clock
                 if (phase_counter == 5'd15 || phase_counter == 5'd31) begin
                     clk_div_o <= ~clk_div_o;
                 end
             end
             
+            // determine mask status
             togle_counter <= togle_counter + 32'd1;
             if (togle_counter == brightness) begin
                 togle_counter <= 32'd0;
-                mask = !mask;
+                mask = ~mask;
             end
         end
         
