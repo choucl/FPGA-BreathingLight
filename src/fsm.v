@@ -15,7 +15,7 @@ module fsm (
               
     reg [2:0] cstate;
 
-    always @(clk_div_i or rst_i) begin
+    always @(posedge clk_div_i or posedge rst_i) begin
         if (rst_i == 1) begin
             cstate <= 0; 
         end else begin
@@ -35,6 +35,7 @@ module fsm (
             green:  color_o = `GREEN;
             blue:   color_o = `BLUE;
             purple: color_o = `PURPLE;
+            default:color_o = `RED;
         endcase
     end
 

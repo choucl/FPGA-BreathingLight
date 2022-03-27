@@ -14,7 +14,7 @@ module breather (
     reg [4:0]  phase_counter;  // count the current phase
     reg [31:0] brightness;
 
-    always @(clk_div_i or rst_i) begin
+    always @(posedge clk_div_i or posedge rst_i) begin
         
         if (rst_i == 1) begin
             clk_counter   <= 32'd0;
