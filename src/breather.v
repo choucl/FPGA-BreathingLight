@@ -32,10 +32,12 @@ module breather (
                 phase_cnt <= phase_cnt + 5'd1;
                 
                 // control brightness, 15 for the brightest
-                if (phase_cnt <= 5'd15) begin
+                if (phase_cnt < 5'd15) begin
                     brightness <= brightness - 4'd1;  // dimer
-                end else begin
+                end else if (phase_cnt > 5'd15 && phase_cnt < 5'd31) begin
                     brightness <= brightness + 4'd1;  // ligher
+                end else begin
+                    brightness <= brightness;
                 end
 
                 // control output clock
