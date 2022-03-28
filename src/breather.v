@@ -45,12 +45,12 @@ module breather (
             end
             
             // determine mask status
-            if (brightness_cnt == 4'hff) begin
+            if (brightness_cnt == 4'hf) begin
                 mask           <= 1;
                 brightness_cnt <= 4'd0;
             end else begin
                 brightness_cnt <= brightness_cnt + 4'd1;
-                if (brightness_cnt >= brightess) mask <= 0;
+                if (brightness_cnt >= brightness) mask <= 0;
             end
         end
         
