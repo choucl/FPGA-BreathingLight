@@ -2,7 +2,7 @@
  *
  */
 `ifndef _DEF_V_
-
+`define _DEF_V_
 // input sw for each color
 `define PURPLE              3'd0
 `define CYAN                3'd1
