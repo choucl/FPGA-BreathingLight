@@ -1,7 +1,7 @@
 // `include "def.v"
 
 module breather (
-    input        clk_div_i,  // clk_div = 125MHz / 8 = 15625000Hz
+    input        clk_div_i,  // clk_div = 125MHz
     input        rst_i,
     input  [2:0] rgb_i,
     output [2:0] rgb4_o,
@@ -25,7 +25,7 @@ module breather (
             clk_div_o      <= 1;
         end else begin
             
-            if (clk_cnt != 32'd9765625) begin
+            if (clk_cnt != 32'd30517) begin
                 clk_cnt   <= clk_cnt + 32'd1; 
             end else begin  // 1/16 sec
                 clk_cnt   <= 32'd0;
