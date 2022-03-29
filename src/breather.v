@@ -22,7 +22,7 @@ module breather (
             brightness_cnt <= 4'd0;
             brightness     <= 4'd15;
             mask           <= 1;
-            clk_div_o      <= 1;
+            clk_div_o      <= 0;
         end else begin
             
             if (clk_cnt != 32'd30517) begin
